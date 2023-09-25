@@ -69,7 +69,7 @@ def return_best_consensus_category(consensus):
     return (category_name, score)
 
 
-def calc_probabilities_for_all_models(image, models_path, local_model_files):
+def calc_probabilities_for_all_models(image, local_model_files, models_path=""):
     """
     Calculate probabilities for all models in a list.
 
@@ -87,7 +87,7 @@ def calc_probabilities_for_all_models(image, models_path, local_model_files):
     return ProbabilitiesForImage
 
 
-def calc_consensus(image, models_path, local_model_files):
+def calc_consensus(image, local_model_files, models_path=""):
     """
     Calculate the consensus category and score for a given image.
 
@@ -99,7 +99,7 @@ def calc_consensus(image, models_path, local_model_files):
     Returns:
         A tuple containing the consensus category name and its score.
     """
-    ProbabilitiesForImage = calc_probabilities_for_all_models(image, models_path, local_model_files)
+    ProbabilitiesForImage = calc_probabilities_for_all_models(image, local_model_files, models_path)
     consensus = calculate_consensus_scores(ProbabilitiesForImage)
     category_name, score = return_best_consensus_category(consensus)
     return category_name, score

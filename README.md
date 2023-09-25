@@ -41,7 +41,7 @@ models_path = "models/"
 image = cv2.imread("cat.jpg", cv2.IMREAD_COLOR)
 
 # Calc consensus score and return the highest scored class
-category_name, score = calc_consensus(image, models_path, model_files)
+category_name, score = calc_consensus(image, model_files, models_path)
 print(category_name, score)
 
 # cat 0.9255041480
@@ -90,7 +90,7 @@ Find the category with the highest consensus score.
 
 A tuple containing the best category name and its score.
 
-### `calc_probabilities_for_all_models(image, models_path, local_model_files)`
+### `calc_probabilities_for_all_models(image, local_model_files, models_path)`
 
 Calculate probabilities for all models in a list.
 
@@ -104,7 +104,7 @@ Calculate probabilities for all models in a list.
 
 A list of probabilities for each model in the input list.
 
-### `calc_consensus(image, models_path, local_model_files)`
+### `calc_consensus(image, local_model_files, models_path)`
 
 Calculate the consensus category and score for a given image.
 
